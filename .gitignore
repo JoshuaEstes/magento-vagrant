@@ -1,0 +1,6 @@
+/.vagrant/
+/bin/
+/vendor/
+/web/
+composer.lock
+composer.phar

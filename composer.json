@@ -1,0 +1,19 @@
+{
+    "name": "joshuaestes/magento-vagrant",
+    "description": "Used to stand up a development box for vagrant",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua Estes",
+            "email": "Joshua@Estes.in"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phing/phing": "*",
+        "n98/magerun": "*"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

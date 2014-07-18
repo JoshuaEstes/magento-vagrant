@@ -1,0 +1,7 @@
+commands:
+    N98\Magento\Command\Installer\InstallCommand:
+        installation:
+            defaults:
+                currency: USD
+                locale:   en_US
+                timezone: America/New_York
