@@ -23,6 +23,14 @@
         </exec>
         <exec executable="vagrant" passthru="true">
             <arg line="ssh --" />
+            <arg line="sudo a2enmod rewrite" />
+        </exec>
+        <exec executable="vagrant" passthru="true">
+            <arg line="ssh --" />
+            <arg line="sudo service apache2 restart" />
+        </exec>
+        <exec executable="vagrant" passthru="true">
+            <arg line="ssh --" />
             <arg line="${vm.basedir}/bin/n98-magerun install -n" />
             <arg value="--magentoVersion=${magento.version}" />
             <arg value="--installationFolder=${magento.path}" />
