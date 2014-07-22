@@ -60,3 +60,8 @@ service { 'mysql':
   require => Package['mysql-server'],
 }
 
+# Cronjob for magento, run every 15 minutes
+cron { 'magento':
+  command => '/bin/sh /var/www/magento/web/cron.sh',
+  minute  => '*/15',
+}
