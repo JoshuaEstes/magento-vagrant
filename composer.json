@@ -10,7 +10,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "phing/phing": "*",
+        "daedalus/daedalus": "*",
         "n98/magerun": "*"
     },
     "config": {
