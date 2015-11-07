@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="joshuaestes/magento-vagrant" default="help">
+<project name="joshuaestes/magento-vagrant" default="vagrant:mage:install">
     <property name="vm.basedir" value="/var/www/magento" />
 
     <property name="magento.path" value="${vm.basedir}/web" />
-    <property name="magento.version" value="1.9.0.1" />
+    <property name="magento.version" value="1.9.2.2" />
     <property name="magento.baseurl" value="http://www.localhost.com:8080/" />
 
     <property name="db.host" value="127.0.0.1" />
@@ -12,7 +12,7 @@
     <property name="db.name" value="magento" />
 
     <target name="vagrant:mage:install">
-        <delete dir="${project.basedir}/web" />
+        <delete dir="${project.basedir}/web" quiet="true" />
         <exec executable="vagrant" passthru="true">
             <arg line="ssh --" />
             <arg line="sudo cp ${vm.basedir}/n98-magerun.yaml /etc/n98-magerun.yaml" />
@@ -27,10 +27,6 @@
         </exec>
         <exec executable="vagrant" passthru="true">
             <arg line="ssh --" />
-            <arg line="sudo service apache2 restart" />
-        </exec>
-        <exec executable="vagrant" passthru="true">
-            <arg line="ssh --" />
             <arg line="${vm.basedir}/bin/n98-magerun install -n" />
             <arg value="--magentoVersion=${magento.version}" />
             <arg value="--installationFolder=${magento.path}" />
@@ -41,6 +37,10 @@
             <arg value="--installSampleData=no" />
             <arg value="--useDefaultConfigParams=yes" />
             <arg value="--baseUrl=${magento.baseurl}" />
+        </exec>
+        <exec executable="vagrant" passthru="true">
+            <arg line="ssh --" />
+            <arg line="sudo service apache2 restart" />
         </exec>
     </target>
 </project>

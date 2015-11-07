@@ -10,6 +10,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "n98/magerun": "^1.97",
+        "phing/phing": "^2.12"
     },
     "config": {
         "bin-dir": "bin"
